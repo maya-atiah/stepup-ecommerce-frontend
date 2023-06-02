@@ -3,16 +3,15 @@ import axios from "axios";
 import Loader from "../../../Loader/Loader";
 
 function Athletic() {
-const [alldata, setAllData] = useState([]);
-const [loading,setLoading] = useState(true);
+  const [alldata, setAllData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-
-  const apiURL = "https://e-commerce-back-end-production.up.railway.app/api/products/getproducts";
+  const apiURL = "https://stepup-rjvy.onrender.com/api/products/getproducts";
 
   const fetchAllData = async () => {
     try {
       const response = await axios.get(apiURL);
-      setAllData(response.data?.productList || []); 
+      setAllData(response.data?.productList || []);
       setLoading(false);
     } catch (error) {
       console.error(error);
@@ -23,8 +22,13 @@ const [loading,setLoading] = useState(true);
   useEffect(() => {
     fetchAllData();
   }, []);
-  if(loading){
-    return <div> <Loader/> </div>
+  if (loading) {
+    return (
+      <div>
+        {" "}
+        <Loader />{" "}
+      </div>
+    );
   }
 
   if (alldata && alldata.length > 0) {

@@ -19,7 +19,7 @@ function DashPages() {
     images: null,
   });
 
-  const APIKEY = "https://e-commerce-back-end-production.up.railway.app/api/pages/getallpages";
+  const APIKEY = "https://stepup-rjvy.onrender.com/api/pages/getallpages";
 
   const Pages = async () => {
     try {
@@ -43,7 +43,7 @@ function DashPages() {
     formData.append("images", infoImage);
     try {
       const response = await axios.post(
-        "https://e-commerce-back-end-production.up.railway.app/api/pages/createpage",
+        "https://stepup-rjvy.onrender.com/api/pages/createpage",
         formData,
         {
           headers: {
@@ -66,7 +66,9 @@ function DashPages() {
   };
 
   const deleteUser = async (id) => {
-    await axios.delete(`https://e-commerce-back-end-production.up.railway.app/api/pages/deletepage/${id}`);
+    await axios.delete(
+      `https://stepup-rjvy.onrender.com/api/pages/deletepage/${id}`
+    );
     toast.success("Deleted Successfully", 2000);
     await Pages();
   };
@@ -88,7 +90,7 @@ function DashPages() {
     formData.append("images", infoImage);
 
     await axios.put(
-      `https://e-commerce-back-end-production.up.railway.app/api/pages/updatepage/${selectedInfo._id}`,
+      `https://stepup-rjvy.onrender.com/api/pages/updatepage/${selectedInfo._id}`,
       formData,
       {
         headers: {
@@ -104,7 +106,7 @@ function DashPages() {
     <div className='compflex'>
       <Sidebar />
       <div className='container-info'>
-      <h1 className="Item-dash-header">Pages</h1>
+        <h1 className='Item-dash-header'>Pages</h1>
 
         <div>
           <form
@@ -200,7 +202,7 @@ function DashPages() {
           </div>
         )}
         <div>
-          <table className="dashboard-table">
+          <table className='dashboard-table'>
             <thead>
               <tr>
                 <th scope='col'>NB</th>

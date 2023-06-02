@@ -25,7 +25,7 @@ const SignUp = ({ onBackToLoginClick, setIsLogin }) => {
 
   const fetchRegister = async () => {
     try {
-      await axios.post("https://e-commerce-back-end-production.up.railway.app/api/users/register", {
+      await axios.post("https://stepup-rjvy.onrender.com/api/users/register", {
         fullName,
         email,
         password,
@@ -50,9 +50,8 @@ const SignUp = ({ onBackToLoginClick, setIsLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
- 
+
     fetchRegister();
-  
   };
 
   return (

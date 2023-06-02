@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "../Login/Login.css";
 import { FaRegUserCircle, FaLock } from "react-icons/fa";
 import axios from "axios";
-import  secureLocalStorage  from  "react-secure-storage";
+import secureLocalStorage from "react-secure-storage";
 
 const SignIn = ({ onSignupClick }) => {
   const [email, setEmail] = useState();
@@ -10,14 +10,17 @@ const SignIn = ({ onSignupClick }) => {
   const [errMsg, setErrMsg] = useState("");
 
   const errRef = useRef();
- 
+
   useEffect(() => {
-  // fetchLogin();
+    // fetchLogin();
   }, []);
 
   const fetchLogin = async () => {
     axios
-      .post("https://e-commerce-back-end-production.up.railway.app/api/users/login", { email, password })
+      .post("https://stepup-rjvy.onrender.com/api/users/login", {
+        email,
+        password,
+      })
       .then((res) => {
         secureLocalStorage.setItem("token", res.data.token);
         secureLocalStorage.setItem("role", res.data.role);
@@ -49,35 +52,35 @@ const SignIn = ({ onSignupClick }) => {
 
   return (
     <div>
-      <form className="form-subcontainer" onSubmit={handleSubmit}>
+      <form className='form-subcontainer' onSubmit={handleSubmit}>
         <p
           ref={errRef}
           className={errMsg ? "errmsg" : "offscreen"}
-          aria-live="assertive"
+          aria-live='assertive'
         >
           {errMsg}
         </p>
-        <div className="userEmail-title">
-          <FaRegUserCircle className="icone-login" />
+        <div className='userEmail-title'>
+          <FaRegUserCircle className='icone-login' />
           <input
-            type="text"
-            autoComplete="off"
-            placeholder="Email"
+            type='text'
+            autoComplete='off'
+            placeholder='Email'
             onChange={(e) => setEmail(e.target.value)}
           ></input>
         </div>
-        <div className="userPassword-title">
-          <FaLock className="icone-login" />
+        <div className='userPassword-title'>
+          <FaLock className='icone-login' />
           <input
-            type="password"
-            placeholder="Password"
+            type='password'
+            placeholder='Password'
             onChange={(e) => setPassword(e.target.value)}
           ></input>
         </div>
-        <div className="login-button-container">
+        <div className='login-button-container'>
           <div onClick={() => onSignupClick()}>Don't hava an account?</div>
 
-          <button className="login-btn">Login</button>
+          <button className='login-btn'>Login</button>
         </div>
       </form>
     </div>

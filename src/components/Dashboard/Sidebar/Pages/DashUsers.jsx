@@ -27,14 +27,12 @@ function YourComponent() {
     fetchData();
   }, []);
 
-    async function fetchData() {
-        
+  async function fetchData() {
     const token = secureLocalStorage.getItem("token");
-      
+
     try {
-        
       const response = await axios.get(
-        "https://e-commerce-back-end-production.up.railway.app/api/users/getall",
+        "https://stepup-rjvy.onrender.com/api/users/getall",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -50,40 +48,42 @@ function YourComponent() {
   }
 
   const handleAdd = async (e) => {
-      e.preventDefault();
-      const formData = new FormData();
-      formData.append("fullName", newInfo.fullName);
-      formData.append("email", newInfo.email);
-      formData.append("password", newInfo.password);
-      formData.append("phoneNumber", newInfo.phoneNumber);
-      formData.append("location", newInfo.location);
-      try {
-          const response = await axios.post(
-              "https://e-commerce-back-end-production.up.railway.app/api/users/register", formData,
-              {
-                  headers: {
-                      'Content-Type': 'application/x-www-form-urlencoded'
-                  },
-              }
-          );
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("fullName", newInfo.fullName);
+    formData.append("email", newInfo.email);
+    formData.append("password", newInfo.password);
+    formData.append("phoneNumber", newInfo.phoneNumber);
+    formData.append("location", newInfo.location);
+    try {
+      const response = await axios.post(
+        "https://stepup-rjvy.onrender.com/api/users/register",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        }
+      );
 
-          toast.success("Added Successfully", 2000);
-          fetchData();
-          setNewInfo({
-              fullName: '',
-              email: '',
-              password: '',
-              phoneNumber: '',
-              location: '',
-
-          });
-      } catch (error) {
-          console.error(error);
-      }
+      toast.success("Added Successfully", 2000);
+      fetchData();
+      setNewInfo({
+        fullName: "",
+        email: "",
+        password: "",
+        phoneNumber: "",
+        location: "",
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const deleteUser = async (id) => {
-    await axios.delete(`https://e-commerce-back-end-production.up.railway.app/api/users/delete/${id}`);
+    await axios.delete(
+      `https://stepup-rjvy.onrender.com/api/users/delete/${id}`
+    );
     toast.success("Deleted Successfully", 2000);
     await fetchData();
   };
@@ -93,60 +93,63 @@ function YourComponent() {
       <Sidebar />
       <div className='container-info'>
         <div>
-        <h1 className="Item-dash-header">Users</h1>
+          <h1 className='Item-dash-header'>Users</h1>
 
-           <form
-                        ref={selectedInfo}
-                        className="contact-formm"
-                        encType="multipart/form-data"
-                    >
-                        <input
-                            className="inputadd"
-                            type="text"
-                            value={newInfo.fullName}
-                            onChange={(e) =>
-                                setNewInfo({ ...newInfo, fullName: e.target.value })
-                            }
-                            placeholder="Enter FullName"
-                        />
-                        <input
-                            className="inputadd"
-                            type="text"
-                            value={newInfo.email}
-                            onChange={(e) =>
-                                setNewInfo({ ...newInfo, email: e.target.value })
-                            }
-                            placeholder="Enter Email"
-                        /><input
-                            className="inputadd"
-                            type="text"
-                            value={newInfo.password}
-                            onChange={(e) =>
-                                setNewInfo({ ...newInfo, password: e.target.value })
-                            }
-                            placeholder="Enter Password"
-                        /><input
-                            className="inputadd"
-                            type="text"
-                            value={newInfo.phoneNumber}
-                            onChange={(e) =>
-                                setNewInfo({ ...newInfo, phoneNumber: e.target.value })
-                            }
-                            placeholder="Enter PhoneNumber"
-                        /><input
-                            className="inputadd"
-                            type="text"
-                            value={newInfo.location}
-                            onChange={(e) =>
-                                setNewInfo({ ...newInfo, location: e.target.value })
-                            }
-                            placeholder="Enter Location"
-                        /> 
+          <form
+            ref={selectedInfo}
+            className='contact-formm'
+            encType='multipart/form-data'
+          >
+            <input
+              className='inputadd'
+              type='text'
+              value={newInfo.fullName}
+              onChange={(e) =>
+                setNewInfo({ ...newInfo, fullName: e.target.value })
+              }
+              placeholder='Enter FullName'
+            />
+            <input
+              className='inputadd'
+              type='text'
+              value={newInfo.email}
+              onChange={(e) =>
+                setNewInfo({ ...newInfo, email: e.target.value })
+              }
+              placeholder='Enter Email'
+            />
+            <input
+              className='inputadd'
+              type='text'
+              value={newInfo.password}
+              onChange={(e) =>
+                setNewInfo({ ...newInfo, password: e.target.value })
+              }
+              placeholder='Enter Password'
+            />
+            <input
+              className='inputadd'
+              type='text'
+              value={newInfo.phoneNumber}
+              onChange={(e) =>
+                setNewInfo({ ...newInfo, phoneNumber: e.target.value })
+              }
+              placeholder='Enter PhoneNumber'
+            />
+            <input
+              className='inputadd'
+              type='text'
+              value={newInfo.location}
+              onChange={(e) =>
+                setNewInfo({ ...newInfo, location: e.target.value })
+              }
+              placeholder='Enter Location'
+            />
 
-         <button className="buttonadd" onClick={handleAdd}>
-                            Add
-                        </button> 
-          </form> 
+            <button className='buttonadd' onClick={handleAdd}>
+              Add
+            </button>
+          </form>
         </div>
 
         <div>

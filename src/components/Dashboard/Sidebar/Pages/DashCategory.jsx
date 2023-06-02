@@ -18,7 +18,7 @@ function DashCategory() {
     info_image: null,
   });
 
-  const APIKEY = "https://e-commerce-back-end-production.up.railway.app/api/category/allcategories";
+  const APIKEY = "https://stepup-rjvy.onrender.com/api/category/allcategories";
 
   const Categories = async () => {
     try {
@@ -41,7 +41,7 @@ function DashCategory() {
     formData.append("image", infoImage);
     try {
       const response = await axios.post(
-        "https://e-commerce-back-end-production.up.railway.app/api/category/createcategory",
+        "https://stepup-rjvy.onrender.com/api/category/createcategory",
         formData,
         {
           headers: {
@@ -63,7 +63,7 @@ function DashCategory() {
 
   const deleteUser = async (id) => {
     await axios.delete(
-      `https://e-commerce-back-end-production.up.railway.app/api/category/deletecategory/${id}`
+      `https://stepup-rjvy.onrender.com/api/category/deletecategory/${id}`
     );
     toast.success("Deleted Successfully", 2000);
     await Categories();
@@ -84,7 +84,7 @@ function DashCategory() {
     formData.append("image", infoImage);
 
     await axios.put(
-      `https://e-commerce-back-end-production.up.railway.app/api/category/updatecategory/${selectedInfo._id}`,
+      `https://stepup-rjvy.onrender.com/api/category/updatecategory/${selectedInfo._id}`,
       formData,
       {
         headers: {
@@ -100,7 +100,7 @@ function DashCategory() {
     <div className='compflex'>
       <Sidebar />
       <div className='container-info'>
-        <h1 className="Item-dash-header">Categories</h1>
+        <h1 className='Item-dash-header'>Categories</h1>
         <div>
           <form
             ref={selectedInfo}

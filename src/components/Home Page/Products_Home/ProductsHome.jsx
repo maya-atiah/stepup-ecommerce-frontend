@@ -4,12 +4,11 @@ import "./ProductsHome.css";
 import { Link } from "react-router-dom";
 import { RiBookmarkFill } from "react-icons/ri";
 
-
 function ProductsHome() {
   const [alldata, setAllData] = useState([]);
   // const [loading,setLoading] = useState(true);
 
-  const apiURL = "https://e-commerce-back-end-production.up.railway.app/api/products/getproducts";
+  const apiURL = "https://stepup-rjvy.onrender.com/api/products/getproducts";
 
   const fetchallData = async () => {
     try {
@@ -24,7 +23,6 @@ function ProductsHome() {
     fetchallData();
   }, []);
 
-
   return (
     <div className='container_products'>
       <div className='group_title_product'>
@@ -38,10 +36,8 @@ function ProductsHome() {
             .slice(0, 8)
             .map((item) => (
               <div className='ticp' key={item._id}>
-                {item.is_new_release && (
-                  <p className='new-release-home'> </p>
-                )}
-               
+                {item.is_new_release && <p className='new-release-home'> </p>}
+
                 <Link to={`/single-product/${item._id}`}>
                   <img className='img_products_home' src={`${item.image}`} />
                   <Fragment>

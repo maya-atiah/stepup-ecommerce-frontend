@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function Slides() {
- const [alldata, setallData] = useState([]);
+  const [alldata, setallData] = useState([]);
 
-  const apiURL = "https://e-commerce-back-end-production.up.railway.app/api/products/getproducts";
+  const apiURL = "https://stepup-rjvy.onrender.com/api/products/getproducts";
 
   const fetchAllData = async () => {
     try {
@@ -14,13 +14,9 @@ function Slides() {
       console.log(error);
     }
   };
- useEffect(() => {
+  useEffect(() => {
     fetchAllData();
   }, []);
-
-
-
-
 
   if (alldata && alldata.length > 0) {
     const filteredData = alldata.filter((item) =>

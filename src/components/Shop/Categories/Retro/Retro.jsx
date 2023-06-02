@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function Retro() {
-const [alldata, setallData] = useState([]);
+  const [alldata, setallData] = useState([]);
 
-  const apiURL = "https://e-commerce-back-end-production.up.railway.app/api/products/getproducts";
+  const apiURL = "https://stepup-rjvy.onrender.com/api/products/getproducts";
 
   const fetchAllData = async () => {
     try {
@@ -23,20 +23,7 @@ const [alldata, setallData] = useState([]);
       item.category._id.includes("643feab292947e7429c6dfc2")
     );
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  return (
+    return (
       <div>
         {filteredData.length > 0 ? (
           filteredData.map((item) => (

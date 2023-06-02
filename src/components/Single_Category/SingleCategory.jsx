@@ -9,9 +9,9 @@ function SingleCategory() {
   const { categoryId } = useParams();
 
   const [allproduct, setallproductData] = useState([]);
-  const [loading,setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-  const apiURL = `https://e-commerce-back-end-production.up.railway.app/api/products/getproductsbycategory/${categoryId}`;
+  const apiURL = `https://stepup-rjvy.onrender.com/api/products/getproductsbycategory/${categoryId}`;
 
   const fetchAllProduct = async () => {
     try {
@@ -27,8 +27,13 @@ function SingleCategory() {
   useEffect(() => {
     fetchAllProduct();
   }, []);
-  if(loading){
-    return <div> <Loader/> </div>
+  if (loading) {
+    return (
+      <div>
+        {" "}
+        <Loader />{" "}
+      </div>
+    );
   }
 
   if (!allproduct || allproduct.length === 0) {
@@ -36,20 +41,20 @@ function SingleCategory() {
   }
 
   return (
-    <div className="container_single_cat">
-      <div className="group_title_single_cat">
-        <h1 className="title_single_cat">
+    <div className='container_single_cat'>
+      <div className='group_title_single_cat'>
+        <h1 className='title_single_cat'>
           {allproduct[0]?.category?.name || "N/A"}
         </h1>
       </div>
 
-      <div className="container_category_ticp_cat">
+      <div className='container_category_ticp_cat'>
         {allproduct.map((item) => (
-          <div className="ticp_cat" key={item._id}>
+          <div className='ticp_cat' key={item._id}>
             <Link to={`/single-product/${item._id}`}>
-              <img className="img_single_cat" src={item.image} alt="" />
+              <img className='img_single_cat' src={item.image} alt='' />
               <h5>{item.category?.name || "N/A"}</h5>
-              <h5 className="title_single_item">{item.name}</h5>
+              <h5 className='title_single_item'>{item.name}</h5>
               <h5>{item.price} $</h5>
             </Link>
           </div>

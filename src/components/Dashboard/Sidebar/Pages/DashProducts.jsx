@@ -24,7 +24,7 @@ function Dashproducts() {
     images: null,
   });
 
-  const APIKEY = "https://e-commerce-back-end-production.up.railway.app/api/products/getproducts";
+  const APIKEY = "https://stepup-rjvy.onrender.com/api/products/getproducts";
 
   const Products = async () => {
     try {
@@ -55,7 +55,7 @@ function Dashproducts() {
 
     try {
       const response = await axios.post(
-        "https://e-commerce-back-end-production.up.railway.app/api/products/createproduct",
+        "https://stepup-rjvy.onrender.com/api/products/createproduct",
         formData,
         {
           headers: {
@@ -85,7 +85,7 @@ function Dashproducts() {
 
   const deleteUser = async (id) => {
     await axios.delete(
-      `https://e-commerce-back-end-production.up.railway.app/api/products/deleteproduct/${id}`
+      `https://stepup-rjvy.onrender.com/api/products/deleteproduct/${id}`
     );
     toast.success("Deleted Successfully", 2000);
     await Products();
@@ -112,9 +112,8 @@ function Dashproducts() {
     formData.append("image", infoImage);
     formData.append("images", infoImage);
 
-
     await axios.put(
-      `https://e-commerce-back-end-production.up.railway.app/api/products/updateproduct/${selectedInfo._id}`,
+      `https://stepup-rjvy.onrender.com/api/products/updateproduct/${selectedInfo._id}`,
       formData,
       {
         headers: {
@@ -305,7 +304,7 @@ function Dashproducts() {
           </div>
         )}
         <div>
-          <table>            
+          <table>
             <tbody className='product-table-tbody'>
               {allProducts.map((info, index) => (
                 <tr className='product-table-tbody-tr' key={index}>

@@ -6,7 +6,7 @@ function Hightop() {
   const [alldata, setallData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const apiURL = "https://e-commerce-back-end-production.up.railway.app/api/products/getproducts";
+  const apiURL = "https://stepup-rjvy.onrender.com/api/products/getproducts";
 
   const fetchallData = async () => {
     try {

@@ -4,17 +4,16 @@ import axios from "axios";
 import { AiFillDelete } from "react-icons/ai";
 import { BsCart } from "react-icons/bs";
 import { FaCheckCircle } from "react-icons/fa";
-import  secureLocalStorage  from  "react-secure-storage";
-
+import secureLocalStorage from "react-secure-storage";
 
 const Order = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitted, setISSubmitted] = useState(false);
   const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cart")) || []);
+    JSON.parse(localStorage.getItem("cart")) || []
+  );
 
-  
   const handleSubmitOrder = async () => {
     setIsLoading(true);
     setErrorMessage("");
@@ -24,7 +23,7 @@ const Order = () => {
     }
     try {
       const response = await axios.post(
-        "https://e-commerce-back-end-production.up.railway.app/api/orders",
+        "https://stepup-rjvy.onrender.com/api/orders",
         {
           cart,
         },
@@ -47,9 +46,9 @@ const Order = () => {
 
   const handleDelete = (id) => {
     setCart((cart) => cart.filter((i) => i.product_id !== id));
-    
+
     localStorage.setItem("cart", JSON.stringify(cart));
-      window.location.reload();
+    window.location.reload();
   };
 
   const updateQuantity = (itemId, newQuantity) => {
@@ -57,14 +56,14 @@ const Order = () => {
       if (item.product_id === itemId) {
         return {
           ...item,
-          quantity: newQuantity <0 ? 0 : newQuantity,
+          quantity: newQuantity < 0 ? 0 : newQuantity,
         };
       }
       return item;
     });
     setCart(updatedCart);
   };
-  
+
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);

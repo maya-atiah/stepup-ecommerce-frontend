@@ -24,7 +24,7 @@ function NavbarMobile() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        "https://e-commerce-back-end-production.up.railway.app/api/users/auth/user-role",
+        "https://stepup-rjvy.onrender.com/api/users/auth/user-role",
         {
           headers: {
             Authorization: `Bearer ${token}`,

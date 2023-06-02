@@ -12,7 +12,7 @@ function SearchBar() {
   const fetchData = async (value) => {
     try {
       await axios
-        .get("https://e-commerce-back-end-production.up.railway.app/api/category/allcategories")
+        .get("https://stepup-rjvy.onrender.com/api/category/allcategories")
         .then((res) => res.data.data)
         .then((json) => {
           const result = json.filter((result) => {

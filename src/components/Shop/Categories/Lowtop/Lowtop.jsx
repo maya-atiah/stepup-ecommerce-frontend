@@ -4,17 +4,15 @@ import Loader from "../../../Loader/Loader";
 
 function Lowtop() {
   const [alldata, setAllData] = useState([]);
-  
-  const apiURL = "https://e-commerce-back-end-production.up.railway.app/api/products/getproducts";
+
+  const apiURL = "https://stepup-rjvy.onrender.com/api/products/getproducts";
 
   const fetchAllData = async () => {
     try {
       const response = await axios.get(apiURL);
       setAllData(response.data?.productList || []);
-     
     } catch (error) {
       console.error(error);
-      
     }
   };
 
@@ -22,13 +20,11 @@ function Lowtop() {
     fetchAllData();
   }, []);
 
-  
   if (alldata && alldata.length > 0) {
     const filteredData = alldata.filter((item) =>
       item.category._id.includes("6437ba63a671878f61ce7e40")
     );
     return (
-     
       <div>
         {filteredData.length > 0 ? (
           filteredData.map((item) => (
@@ -41,10 +37,8 @@ function Lowtop() {
           <p>No data available</p>
         )}
       </div>
-      
     );
- 
-}
+  }
 }
 
 export default Lowtop;

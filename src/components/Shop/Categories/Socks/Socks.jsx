@@ -4,7 +4,7 @@ import axios from "axios";
 function Socks() {
   const [alldata, setallData] = useState([]);
 
-  const apiURL = "https://e-commerce-back-end-production.up.railway.app/api/products/getproducts";
+  const apiURL = "https://stepup-rjvy.onrender.com/api/products/getproducts";
 
   const fetchAllData = async () => {
     try {

@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 function Categories() {
   const [alldata, setAllData] = useState([]);
 
-  const apiURL = "https://e-commerce-back-end-production.up.railway.app/api/category/allcategories";
+  const apiURL = "https://stepup-rjvy.onrender.com/api/category/allcategories";
 
   const fetchallData = async () => {
     try {
@@ -50,28 +50,22 @@ function Categories() {
     alignItems: "center",
   };
 
-
-
   return (
-    <div className="container_categories">
+    <div className='container_categories'>
       <div>
         <Slider {...responsiveSettings} style={sliderStyle}>
           {alldata.length > 0 ? (
             alldata.map((item) => (
-              
-              <div className="img_text_categories_home" key={item._id}>
-              <Link to={`single-category/${item._id}`}>
-
-                <img
-                  className="img_categories_home"
-                  src={`https://e-commerce-back-end-production.up.railway.app/${item.image}`}
-                  alt={item.name}
-                />
-                <h6 className="text_under_categories">{item.name}</h6>
-              </Link>
-
+              <div className='img_text_categories_home' key={item._id}>
+                <Link to={`single-category/${item._id}`}>
+                  <img
+                    className='img_categories_home'
+                    src={`https://stepup-rjvy.onrender.com/${item.image}`}
+                    alt={item.name}
+                  />
+                  <h6 className='text_under_categories'>{item.name}</h6>
+                </Link>
               </div>
-
             ))
           ) : (
             <p>No data available</p>

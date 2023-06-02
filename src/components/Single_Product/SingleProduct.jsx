@@ -13,13 +13,10 @@ function SingleProduct() {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const [isProductDisabled, setIsProductDisabled] = useState(false);
   const [cart, setCart] = useState([]);
- const [message, setMessage] = useState("");
+  const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(true);
-  
 
-
-
-  const apiURL = `https://e-commerce-back-end-production.up.railway.app/api/products/getproductbyid/${productId}`;
+  const apiURL = `https://stepup-rjvy.onrender.com/api/products/getproductbyid/${productId}`;
 
   const fetchallData = async () => {
     try {
@@ -29,27 +26,30 @@ function SingleProduct() {
     } catch (error) {
       console.error(error);
       setLoading(false);
-
     }
   };
 
   useEffect(() => {
     fetchallData();
-   
   }, []);
-  
-  if(loading){
-    return <div> <Loader/> </div>
+
+  if (loading) {
+    return (
+      <div>
+        {" "}
+        <Loader />{" "}
+      </div>
+    );
   }
 
-
-
   const handleIncrease = () => {
-    const attribute = alldata[0].attribute.find((attribute) => attribute.size == selectedSize && attribute.color == selectedColor);
+    const attribute = alldata[0].attribute.find(
+      (attribute) =>
+        attribute.size == selectedSize && attribute.color == selectedColor
+    );
     if (attribute && selectedQuantity < attribute.quantity) {
       setSelectedQuantity(selectedQuantity + 1);
     }
-    
   };
 
   const handleDecrease = () => {
@@ -57,57 +57,53 @@ function SingleProduct() {
       setSelectedQuantity(selectedQuantity - 1);
     }
   };
-  
-  
-   const addToCart = () => {
-     const selectedAttr = alldata[0].attribute.find(
-       (attr) => attr.size == selectedSize && attr.color == selectedColor
-     );
-     if (selectedAttr && selectedQuantity <= selectedAttr.quantity) {
-       const cartItem = {
-         product_id: alldata[0]._id,
-         price: alldata[0].price,
-         color: selectedColor,
-         size: selectedSize,
-         quantity: selectedQuantity,
-         image: alldata[0].image,
-         name:alldata[0].name
-       };
-       let existingCartItems =
-         JSON.parse(localStorage.getItem("cart")) || [];
-       let cartItemExists = false;
-       existingCartItems = existingCartItems.map((item) => {
-         if (
-           item.product_id == cartItem.product_id &&
-           item.color == cartItem.color &&
-           item.size == cartItem.size
-         ) {
-           cartItemExists = true;
-           return {
-             ...item,
-             quantity: item.quantity + cartItem.quantity,
-           };
-         }
-         return item;
-       });
-       if (!cartItemExists) {
-         existingCartItems.push(cartItem);
-       }
-       localStorage.setItem("cart", JSON.stringify(existingCartItems));
-       setMessage("Product added to cart!");
-       window.location.reload()
-      
-     
-     } 
-   };
 
+  const addToCart = () => {
+    const selectedAttr = alldata[0].attribute.find(
+      (attr) => attr.size == selectedSize && attr.color == selectedColor
+    );
+    if (selectedAttr && selectedQuantity <= selectedAttr.quantity) {
+      const cartItem = {
+        product_id: alldata[0]._id,
+        price: alldata[0].price,
+        color: selectedColor,
+        size: selectedSize,
+        quantity: selectedQuantity,
+        image: alldata[0].image,
+        name: alldata[0].name,
+      };
+      let existingCartItems = JSON.parse(localStorage.getItem("cart")) || [];
+      let cartItemExists = false;
+      existingCartItems = existingCartItems.map((item) => {
+        if (
+          item.product_id == cartItem.product_id &&
+          item.color == cartItem.color &&
+          item.size == cartItem.size
+        ) {
+          cartItemExists = true;
+          return {
+            ...item,
+            quantity: item.quantity + cartItem.quantity,
+          };
+        }
+        return item;
+      });
+      if (!cartItemExists) {
+        existingCartItems.push(cartItem);
+      }
+      localStorage.setItem("cart", JSON.stringify(existingCartItems));
+      setMessage("Product added to cart!");
+      window.location.reload();
+    }
+  };
 
-  const specificData = alldata && alldata[0].attribute.filter((i) => i.size == selectedSize)
+  const specificData =
+    alldata && alldata[0].attribute.filter((i) => i.size == selectedSize);
   const allSizes = alldata && alldata[0].attribute.map((item) => item.size);
   const uniqueSizes = Array.from(new Set(allSizes));
 
   return (
-    <div className="product-details-container">
+    <div className='product-details-container'>
       {alldata ? (
         alldata.map((product) => {
           const allSizes = product.attribute.map((attr) => attr.size);

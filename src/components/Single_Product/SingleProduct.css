@@ -1,0 +1,268 @@
+
+
+   .product-details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .product-details {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 5rem auto;
+        width: 100%;
+  }
+  
+
+  .message-added{
+    color: rgb(2, 150, 2);
+    font-size: 25px;
+    padding-left: 1rem;
+
+  }
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    width: 50%;
+    padding-right: 15rem;
+    padding-left: 5rem;
+  }
+  
+  .product-name {
+    font-size: 2rem;
+    margin-bottom: 3px;
+  }
+  .product-category{
+margin-bottom:20px ;
+font-size: 1rem;
+  }
+  
+  .product-description {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .product-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+
+  
+  .all-product-attribute {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+   
+  }
+
+
+  
+  .product-actions {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+
+
+  /*=============================== COUNTER / QUANTITY =============================*/
+
+
+  .product-attribute-quantity {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: fit-content;
+    border: 1px solid #00000030;
+    border-radius: 4px;
+  }
+  
+  .product-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .counter-button {
+    background-color: #fff;
+ border: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 5px;
+    padding: 5px 10px;
+  }
+  
+  .counter-value {
+    font-size: 1.2rem;
+    margin: 0 10px;
+  }
+  
+  /*=============================== ADD TO CART =============================*/
+
+  .add-to-cart-button {
+    background: #080808;
+    color: #ffffff;
+    border: 1px solid #080808;
+    padding: 0 45px;
+    text-align: center;
+    cursor: pointer;
+    min-height: 44px;
+    height: 40px;
+    line-height: 1.2;
+    vertical-align: top;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 13px;
+    text-transform: none;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+    width: fit-content;}
+  
+  .add-to-cart-button:hover {
+    background-color: transparent;
+    color: #080808;
+    border-color: #080808;
+    transform: scale(1.1);
+  }
+  
+  .product-not-available {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: red;
+    margin-top: 20px;
+  }
+  
+
+  /*=============================== ATTRIBUTE =============================*/
+
+  .product-attribute{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+
+  }
+  
+  .product-attribute select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+   background-color:  #F8F8F8;
+  }
+  
+  .product-attribute select:focus {
+    outline: none;
+    border: 1px solid #00000030;
+  }
+  
+
+
+  
+
+
+  /*=============================== IMAGESS =============================*/
+  .image-wrapper {
+    width: 700px;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    /* float: left; */
+    margin: 25px;
+    box-sizing: border-box;
+  }
+  
+  .image-wrapper img {
+    width: 100%;
+  }
+  
+  .image-wrapper ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    float: left;
+  }
+  
+  .image-wrapper ul li {
+    display: inline-block;
+    float: left;
+    width: 25%;
+    height: 100%;
+    opacity: 0;
+    transition: 300ms;
+  }
+  
+  .image-wrapper ul li:before {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: #000;
+    position: absolute;
+    bottom: 0;
+    margin-left: 12.5%;
+    transition: 300ms;
+    z-index: 2;
+  }
+  
+  .image-wrapper ul li:first-child {
+    opacity: 1;
+  }
+  
+  .image-wrapper ul li:hover {
+    opacity: 1;
+  }
+  
+  .image-wrapper ul li:hover:before {
+    width: 25%;
+    margin-left: 0%;
+  }
+  
+  .image-wrapper ul li img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    pointer-events: none;
+  }
+  
+  .new-release{
+    font-size: 20px;
+    color:#a9d890;
+  }
+  
+@media screen and (max-width: 768px) {
+
+
+  .product-details-container{
+    display: block;
+  }
+  .product-details{
+    display: block;
+  }
+.image-wrapper{
+  width:300px;
+  height: 200px;
+}
+
+.product-info{
+width: 100%;
+padding: 0rem 2rem;
+}
+.product-name{
+  font-size: 1.7rem;
+}
+.product-attribute{
+  width: 50%;
+}
+
+}

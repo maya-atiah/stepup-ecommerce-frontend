@@ -1,0 +1,230 @@
+.login-container {
+    
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.coverImage-login {
+    width: 45vw;
+    height: 70vh;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+
+}
+
+.login-subContainer {
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 35px 60px 0px rgb(0 0 0 / 10%);
+    border-radius: 20px;
+
+}
+
+.form-container {
+    background-color: white;
+    width: 30vw;
+    height: 70vh;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    /* gap:2vh; */
+    align-items: center;
+}
+
+.logoImage-login {
+    height: 90px;
+    width: 200px;
+    margin: 5vh 5vw 2vh 5vw;
+    align-items: center;
+}
+
+.userEmail-title,
+.userPassword-title {
+    width: 20vw;
+    height: 5vh;
+    border: solid 0.2px rgb(243, 243, 243);
+    border-radius: 20px;
+    padding: 8px;
+    box-shadow: 0px 0px 8px #dddddd27;
+    background-color: #eae9e988;
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.userEmail-title input,
+.userPassword-title input {
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    font-size: 1.25rem;
+    width: 100%;
+    margin-left: 5px;
+}
+
+input::placeholder {
+    font-size: 1rem;
+    padding-left: 2vw;
+}
+
+input:focus {
+    outline: none;
+}
+
+.icone-login {
+    font-size: 20px;
+}
+
+.form-subcontainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    padding-top: 3vh;
+    padding-bottom: 5vh;
+}
+
+.form-subcontainer input {
+    padding-left: 1vw;
+}
+
+.login-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2rem;
+    align-items: center;
+}
+
+.login-btn {
+    background: #080808;
+    color: #ffffff;
+    border: 1px solid #080808;
+    padding: 0 45px;
+    text-align: center;
+    cursor: pointer;
+    min-height: 44px;
+    height: 40px;
+    line-height: 1.2;
+    vertical-align: top;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 13px;
+    text-transform: none;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+    width: fit-content;
+}
+
+.login-btn:hover {
+    background-color: transparent;
+    color: #080808;
+    border-color: #080808;
+    transform: scale(1.1);
+}
+
+.login-button-container div {
+    color: grey;
+    font-weight: 600;
+    /* font-size: 12px; */
+    /* border-bottom: solid 0.5px grey; */
+    cursor: pointer;
+}
+
+.login-button-container div:hover {
+    color: #30382d69;
+
+}
+
+.socialicon {
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+font-size: 2rem;
+    color: #080808;
+    margin-top: 6vh;
+}
+
+.facebook {
+    color: #080808;
+}
+
+.errmsg {
+    /* background-color: rgb(162, 161, 161); */
+    color: #ed3a3ac8;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    /* box-shadow: 0 0.188em 1.550em rgb(156, 156, 156); */
+}
+
+.offscreen {
+    position: absolute;
+    left: -9999px;
+}
+
+
+@media screen and (max-width:1350px) {
+    .socialicon {
+
+        font-size: 25px;
+        margin-top: 4vh;
+    }
+
+    .userEmail-title,
+    .userPassword-title {
+        width: 25vw;
+        height: 5vh;
+
+    }
+}
+
+@media screen and (max-width:1022px) {
+
+    .coverImage-login {
+        display: none;
+    }
+
+    .form-container {
+        background-color: white;
+        width: 100%;
+        height: 90vh;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        /* gap:2vh; */
+        align-items: center;
+    }
+
+    .login-container {
+        display: block;
+        padding: 2vh 15vw 2vh 15vw;
+    }
+
+    .logoImage-login {
+
+        margin: 5vh;
+
+    }
+
+    .userEmail-title,
+    .userPassword-title {
+        width: 100%;
+        height: 6vh;
+    }
+
+    .form-subcontainer {
+        padding: 4vh;
+    }
+}
+
+@media screen and (max-width:780px) {
+    .login-container {
+        padding: 1vh 5vw 1vh 5vw;
+    }
+}

@@ -1,0 +1,48 @@
+.icon-header-div {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    color: black;
+
+}
+
+#icon-header {
+    font-size: 1.3rem;
+    color: black;
+}
+
+.icon-header:hover {
+    color: #b6d7a8;
+    cursor: pointer;
+
+}
+
+.flex-icon-header {
+
+    display: flex;
+    flex-direction: row;
+
+}
+
+.span-cart {
+    color: white;
+    background-color: red;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 15px;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .span-cart {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        font-size: 12px;
+    }
+
+
+}

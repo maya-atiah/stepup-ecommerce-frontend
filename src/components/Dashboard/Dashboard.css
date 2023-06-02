@@ -1,0 +1,16 @@
+.dashboard{
+    display: flex;
+    flex-direction: row;
+  background-color: #a9d89023;
+
+}
+.dashboard >h1{
+
+    font-size: 3rem;
+    color: #a9d890;
+    display: flex;
+    align-items: center;
+   width: 90%;
+    justify-content: center;
+    margin: 20rem;
+}

@@ -1,0 +1,23 @@
+.results-list {
+    width: 60vw;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 8px #ddd;
+    border-radius: 10px;
+    /* margin-top: 1rem; */
+    /* max-height: 300px; */
+    overflow-y: auto;
+    position: absolute;
+    top: 100%;
+    left: 28%;
+}
+
+@media screen and (max-width:973px) {
+    .results-list {
+        width: 98%;
+
+        top: 16vh;
+        left: 1%;
+    }
+}
